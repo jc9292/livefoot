@@ -1,1 +1,176 @@
-ss
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="iso-8859-1">
+                <title>Live Foot</title>
+                <meta name="keywords" content="foot, football, actu foot, mercato, transfert, match, fotball">
+                <meta name="description" content="Toute l'actu du foot">
+                <meta name="HandheldFriendly" content="True">
+                <meta name="MobileOptimized" content="320">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+                <meta content='True' name='HandheldFriendly' />
+
+            <meta name="format-detection" content="telephone=no"/>
+            <meta name="format-detection" content="address=no"/>
+
+            <link rel="canonical" href="#">
+
+                <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon.png">
+                <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon.png">
+                <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+                <link rel="shortcut icon" href="apple-touch-icon.png">
+
+                <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+                <meta http-equiv="cleartype" content="on">
+
+                <link rel="shortcut icon" href="favicon.ico">
+
+                <style type="text/css" media="screen">
+                        /*reset*/
+                        html, body { margin: 0; padding: 0;     border: 0; }
+                        body { font-family:Helvetica, Arial, sans-serif; line-height:1.5; font-size:16px; background: #fff; color: #000; word-wrap: break-word; -webkit-text-size-adjust: non
+e; }
+                        h1, h2, h3, h4, h5, h6{ font-weight: normal; margin: 0;}
+                        p img { float: left; margin: 0 10px 5px 0; padding: 0; }
+                        img { border: 0; max-width: 100%; }
+                        table { width:auto; border-collapse: collapse;border-spacing: 0; }
+                        article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+
+                        /*Non-semantic helper classes*/
+                        .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr
+; }
+                        .ir br { display: none; }
+                        /* -- add uppercase and more --*/
+
+                        /*iwc theme*/
+
+                        @font-face {
+                            font-family: 'ProximaNovaSemibold';
+                            src: url('proximanova-semibold-webfont.eot');
+                            src: url('proximanova-semibold-webfont.woff') format('woff'),
+                                 url('proximanova-semibold-webfont.ttf') format('truetype'),
+                                 url('proximanova-semibold-webfont.svg') format('svg');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+
+                        /* common */
+                        body {
+                                margin: 10px;
+                                font-family: 'ProximaNovaSemibold';
+                        }
+                        #main ul.gallery-grid li a p,
+                        #main ul.gallery-list.price li a p,
+                        .search .searchNum {
+                                font-family: 'ProximaNovaSemibold' !important;
+                        }
+                        h1 {
+                                font-size: 1em;
+                        }
+                        h2, h3, h4 {
+                                text-align: center;
+                                margin: 4px 0;
+                                text-transform: uppercase;
+                        }
+                        h3 {
+                                margin: -13px 0 7px 0;
+                                /*font-size: 1.3em;*/
+                        }
+
+                        /*alineacion de imágnes y parrafos*/
+                        .imgcontent {
+                                position: relative;
+                                overflow: hidden;
+                        }
+                        #main img {
+                                margin: 0 auto;
+                                display: block;
+                        }
+                        #main img.left {
+                                float: left;
+                                margin: 0 10px 0 0 !important;
+                        }
+                        #main img.right {
+                                float: right;
+                                margin: 0 0 0 10px !important;
+                        }
+                        #main img.center {
+                                margin: 0 auto;
+                        }
+
+                        .left {
+                                text-align: left;
+                        }
+                        .right {
+                                text-align: right;
+                        }
+                        .center {
+                                text-align: center;
+                        }
+                </style>
+                <link rel="stylesheet" href="85752_f.css">
+                <link rel="stylesheet" href="85752_c.css">
+                <!--[if gte IE 8.0]>
+                <style type="text/css">
+                        #main.t-boutique-p-gallerygrid ul.gallery-grid li {
+                                width: 46%;
+                        }
+                </style>
+                <![endif]-->
+                <script src="modernizr.custom.09105.js"></script>
+        </head>
+        <body class="body">
+                <div id="container">
+                <header id="header" class="t-boutique-p-header">
+                                <h1 class=""><center><img align=left width=50 height=50 src="logo.gif"> <span style="margin:0 0 0 20px;color:#fff;font:bold 30px/50px arial;">Live Foot</span
+>
+                                </center></h1>
+                </header>
+                        <div id="main" role="main" class="t-boutique-p-blogdate">
+                                <iframe width="100%" src="#" noborder style="display:none"></iframe>
+                                <ul id="listb" class="news date">
+<?
+$html=file_get_contents('livefoot.htm');
+$datas=explode('<br/>',$html);
+
+$exclude=array(
+        ' - LIVEFOOT.FR' => 1,
+        ' - FOOTMERCATO.NET' => 1,
+);
+
+$sources=array();
+foreach($datas as $d) {
+        if (preg_match('%'.'<span class="hre">(\d+:\d+)</span> - <a href="([^"]+)" [^>]+><span class="titre1*">([^<]+)</span></a><span class="source">([^<]+)</span>'.'%',$d,$reg)) {
+                if (!empty($exclude[$reg[4]])) { continue; }
+                $src=preg_replace('/'.'\s*-\s*'.'/','',$reg[4]);
+                $sujet=trim(preg_replace('/^'.'(football|foot|mercato -)'.'/i','',iconv("UTF-8", "ISO-8859-1//TRANSLIT",html_entity_decode($reg[3]))));
+                $sujet=preg_replace('/^'.'[^a-zA-Z]+([a-zA-Z])'.'/',"\\1",$sujet);
+// echo "$sujet\n";
+                echo '<li onclick="alert(\'a\');"><a target=_blank href="'.$reg[2].'"><time><span class="d">'.$reg[1].'</span><span class="m">&nbsp;</span><span class="y">'.$src.'</span></t
+ime>';
+                echo '<h3 class="title3">'.$sujet.'</h3></a></li>'."\n";
+        }
+}
+?>
+                        <li class="more">
+                        <a href="index/?pag=2">
+                                <p>Plus de brèves</p>
+                        </a>
+                </li>                           </ul>
+                        </div>
+
+
+                <nav class="t-boutique-p-menu pieces_bg">
+                        <ul class="buttom menu menu_bg" id="menu">
+                                <li class=""><a href="/about-us"  class="menutext menu">A propos</a></li>
+                                <li class=""><a href="/contact"  class="menutext menu">Contact</a></li>
+                        </ul>
+                </nav>
+
+        <footer class="t-boutique-p-footer border footer_bg">
+                <div class="footer edit_element" type='textarea'>&copy; Live Foot App - 2014</a></div>
+        </footer>
+
+                </div> <!--! end of #container -->
+
+</div></body></html>

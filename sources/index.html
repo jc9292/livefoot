@@ -80,50 +80,24 @@
         </style>
         <link rel="stylesheet" href="cssjs/85752_f.css">
         <link rel="stylesheet" href="cssjs/85752_c.css">
-        <script src="cssjs/modernizr.custom.09105.js"></script>
+	<script src="cssjs/javascript.js"></script>
 </head>
 <body class="body">
         <div id="container">
         <header id="header" class="t-boutique-p-header">
-                <h1 class=""><center><img align=left width=50 height=50 src="logo.gif">
+                <h1 class=""><center><img align=left width=50 height=50 src="img/logo.gif">
                         <span style="margin:0 0 0 20px;color:#fff;font:bold 30px/50px arial;">Live Foot</span>
                 </center></h1>
         </header>
         <div id="main" role="main" class="t-boutique-p-blogdate">
                 <iframe width="100%" src="#" noborder style="display:none"></iframe>
                 <ul id="listb" class="news date">
-<?
-$html=file_get_contents('livefoot.htm');
-$datas=explode('<br/>',$html);
-
-$exclude=array(
-        ' - LIVEFOOT.FR' => 1,
-        ' - FOOTMERCATO.NET' => 1,
-);
-
-$sources=array();
-foreach($datas as $d) {
-        if (preg_match('%'.'<span class="hre">(\d+:\d+)</span> - <a href="([^"]+)" [^>]+><span class="titre1*">([^<]+)</span></a><span class="source">([^<]+)</span>'.'%',$d,$reg)) {
-                if (!empty($exclude[$reg[4]])) { continue; }
-                $src=preg_replace('/'.'\s*-\s*'.'/','',$reg[4]);
-                $sujet=trim(preg_replace('/^'.'(football|foot|mercato -)'.'/i','',iconv("UTF-8", "ISO-8859-1//TRANSLIT",html_entity_decode($reg[3]))));
-                $sujet=preg_replace('/^'.'[^a-zA-Z]+([a-zA-Z])'.'/',"\\1",$sujet);
-// echo "$sujet\n";
-                echo '<li onclick="alert(\'a\');"><a target=_blank href="'.$reg[2].'"><time><span class="d">'.$reg[1].'</span><span class="m">&nbsp;</span><span class="y">'.$src.'</span></t
-ime>';
-                echo '<h3 class="title3">'.$sujet.'</h3></a></li>'."\n";
-        }
-}
-?>
-                        <li class="more">
-                        <a href="index/?pag=2">
-                                <p>Plus de brèves</p>
-                        </a>
-                </li>                           </ul>
-                        </div>
-
-
-                <nav class="t-boutique-p-menu pieces_bg">
+		</ul>
+	</div>
+<script>
+getarts(); // recuperere les articles
+</script>
+	<nav class="t-boutique-p-menu pieces_bg">
                         <ul class="buttom menu menu_bg" id="menu">
                                 <li class=""><a href="/about-us"  class="menutext menu">A propos</a></li>
                                 <li class=""><a href="/contact"  class="menutext menu">Contact</a></li>

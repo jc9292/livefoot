@@ -28,7 +28,7 @@ function getartsok(ajx1) {
 	var c=d[0];
 	var txt1='';
 	for (i=0; i<c.length; i++) {
-	        txt1+='<li><a target=_blank href="'+c[i][3]+'"><time><span class="d">'+c[i][0]+'</span>';
+	        txt1+='<li><a onclick="go1(this);return false;" href="#" title="href="'+c[i][3]+'"><time><span class="d">'+c[i][0]+'</span>';
 		txt1+='<span class="m">&nbsp;</span><span class="y">'+c[i][1]+'</span></time>';
 	        txt1+='<h3 class="title3">'+c[i][2]+'</h3></a></li>';
 	}
@@ -36,3 +36,13 @@ function getartsok(ajx1) {
 	document.getElementById('listb').innerHTML=txt1;
 }
 getarts(); // recuperere les articles
+
+function go1(a1) {
+        var h1=a1.title;
+        var fr1=document.getElementById('fr1');
+        fr1.src=h1;
+        fr1.style.display='block';
+        document.getElementById('listb').style.display='none';
+        document.getElementById('fr1').style.height=document.getElementById('main').offsetHeight+'px';
+        return false;
+}

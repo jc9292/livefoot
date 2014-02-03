@@ -25,6 +25,7 @@ function getarts() {
         alert('appelok');
 }
 function getartsok(ajx1) {
+		alert('repOK');
 	eval('var d=['+ajx1.responseText+'];');
 	var c=d[0];
 	var txt1='';
@@ -36,4 +37,3 @@ function getartsok(ajx1) {
 	txt1+='<li class="more"><a href="index/?pag=2"><p>Plus de Br�ves</p></a></li>';
 	document.getElementById('listb').innerHTML=txt1;
 }
-alert('codeJSok');

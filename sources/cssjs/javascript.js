@@ -8,7 +8,6 @@ function newajx(func1) {
         if (ajx) {
                 if (func1!='') {
                         ajx.onreadystatechange = function(){
-                        	alert('ready:'+ajx.readyState+' '+ajx.status);
                                 if ((ajx.readyState==4)&&(ajx.status==200)) { eval(func1+'(ajx);'); }
                         }
                 }
@@ -33,15 +32,15 @@ function getartsok(ajx1) {
 		txt1+='<span class="m">&nbsp;</span><span class="y">'+c[i][1]+'</span></time>';
 	        txt1+='<h3 class="title3">'+c[i][2]+'</h3></a></li>';
 	}
-	txt1+='<li class="more"><a href="index/?pag=2"><p>Plus de Br�ves</p></a></li>';
+	txt1+='<li class="more"><a href="index/?pag=2"><p>Plus de Brèves</p></a></li>';
 	document.getElementById('listb').innerHTML=txt1;
 }
 getarts(); // recuperere les articles
 var dat1=new Date();
 var dat2='ts='+dat1.getTime();
-// jembe.http.get({
-//    url:'http://vps33679.ovh.net/livefoot2/lf.json',
-//    data : dat2,
-//    callback:getartsok,
-//    onError:getartsok
-//});
+jembe.http.get({
+    url:'http://vps33679.ovh.net/livefoot2/lf_json.php',
+    data : dat2,
+    callback:getartsok,
+    onError:getartsok
+});

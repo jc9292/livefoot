@@ -23,7 +23,7 @@ function getarts() {
                 ajx1.open("GET", 'http://vps33679.ovh.net/livefoot2/lf.json', true);
                 ajx1.send('ts='+dat1.getTime());
         }
-        alert('appelok h4');
+        alert('appelok h5');
 }
 function getartsok(ajx1) {
 		alert('repOK'+ajx1.responseText);

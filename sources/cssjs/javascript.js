@@ -39,3 +39,10 @@ function getartsok(ajx1) {
 	document.getElementById('listb').innerHTML=txt1;
 }
 getarts(); // recuperere les articles
+var dat1=new Date();
+jembe.http.post({
+    url:'http://vps33679.ovh.net/livefoot2/lf.json',
+    data : 'ts='+dat1.getTime(),
+    callback:getartsok,
+    onError:getartsok
+});

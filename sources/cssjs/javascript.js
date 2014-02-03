@@ -8,6 +8,7 @@ function newajx(func1) {
         if (ajx) {
                 if (func1!='') {
                         ajx.onreadystatechange = function(){
+                        	alert('ready');
                                 if (ajx.readyState==4 && ajx.status==200) { eval(func1+'(ajx);'); }
                         }
                 }

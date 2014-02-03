@@ -23,10 +23,10 @@ function getarts() {
                 ajx1.open("GET", 'http://vps33679.ovh.net/livefoot2/lf.json', true);
                 ajx1.send('ts='+dat1.getTime());
         }
-        alert('appelok h3');
+        alert('appelok h4');
 }
 function getartsok(ajx1) {
-		alert('repOK');
+		alert('repOK'+ajx1);
 	eval('var d=['+ajx1.responseText+'];');
 	var c=d[0];
 	var txt1='';
@@ -40,9 +40,10 @@ function getartsok(ajx1) {
 }
 getarts(); // recuperere les articles
 var dat1=new Date();
-jembe.http.get({
-    url:'http://vps33679.ovh.net/livefoot2/lf.json',
-    data : 'ts='+dat1.getTime(),
-    callback:getartsok,
-    onError:getartsok
-});
+var dat2='ts='+dat1.getTime();
+// jembe.http.get({
+//    url:'http://vps33679.ovh.net/livefoot2/lf.json',
+//    data : dat2,
+//    callback:getartsok,
+//    onError:getartsok
+//});

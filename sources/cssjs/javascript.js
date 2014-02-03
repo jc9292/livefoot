@@ -9,7 +9,7 @@ function newajx(func1) {
                 if (func1!='') {
                         ajx.onreadystatechange = function(){
                         	alert('ready:'+ajx.readyState+' '+ajx.status);
-                                if (ajx.readyState==4) { eval(func1+'(ajx);'); }
+                                if ((ajx.readyState==4)&&(ajx.status==200)) { eval(func1+'(ajx);'); }
                         }
                 }
                 return ajx;
@@ -23,10 +23,8 @@ function getarts() {
                 ajx1.open("GET", 'http://vps33679.ovh.net/livefoot2/lf_json.php', true);
                 ajx1.send('ts='+dat1.getTime());
         }
-        alert('appelok h7');
 }
 function getartsok(ajx1) {
-		alert('repOK'+ajx1.responseText);
 	eval('var d=['+ajx1.responseText+'];');
 	var c=d[0];
 	var txt1='';

@@ -26,7 +26,7 @@ function getarts() {
         alert('appelok h4');
 }
 function getartsok(ajx1) {
-		alert('repOK'+ajx1);
+		alert('repOK'+ajx1.responseText);
 	eval('var d=['+ajx1.responseText+'];');
 	var c=d[0];
 	var txt1='';

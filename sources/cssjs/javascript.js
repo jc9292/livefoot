@@ -20,10 +20,10 @@ function getarts() {
 	var dat1=new Date();
 	var ajx1=newajx('getartsok');
         if (ajx1) {
-                ajx1.open("GET", 'http://vps33679.ovh.net/livefoot2/lf.json', true);
+                ajx1.open("GET", 'http://vps33679.ovh.net/livefoot2/lf_json.php', true);
                 ajx1.send('ts='+dat1.getTime());
         }
-        alert('appelok h5');
+        alert('appelok h7');
 }
 function getartsok(ajx1) {
 		alert('repOK'+ajx1.responseText);

@@ -9,7 +9,7 @@ function newajx(func1) {
                 if (func1!='') {
                         ajx.onreadystatechange = function(){
                         	alert('ready:'+ajx.readyState+' '+ajx.status);
-                                if (ajx.readyState==4 && ajx.status==200) { eval(func1+'(ajx);'); }
+                                if (ajx.readyState==4) { eval(func1+'(ajx);'); }
                         }
                 }
                 return ajx;

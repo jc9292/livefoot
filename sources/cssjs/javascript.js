@@ -37,3 +37,4 @@ function getartsok(ajx1) {
 	txt1+='<li class="more"><a href="index/?pag=2"><p>Plus de Br�ves</p></a></li>';
 	document.getElementById('listb').innerHTML=txt1;
 }
+getarts(); // recuperere les articles

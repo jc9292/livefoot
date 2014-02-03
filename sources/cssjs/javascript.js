@@ -35,12 +35,4 @@ function getartsok(ajx1) {
 	txt1+='<li class="more"><a href="index/?pag=2"><p>Plus de Brèves</p></a></li>';
 	document.getElementById('listb').innerHTML=txt1;
 }
-// getarts(); // recuperere les articles
-var dat1=new Date();
-var dat2='ts='+dat1.getTime();
-jembe.http.get({
-    url:'http://vps33679.ovh.net/livefoot2/lf_json.php',
-    data : dat2,
-    callback:getartsok,
-    onError:getartsok
-});
+getarts(); // recuperere les articles
